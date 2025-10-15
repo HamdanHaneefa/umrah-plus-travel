@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import logoImage from "@/assets/favicon.png";
 
 const Footer = () => {
   const quickLinks = [
@@ -27,8 +28,12 @@ const Footer = () => {
           <div className="flex items-center justify-between mb-6">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-secondary-foreground text-base font-bold">DA</span>
+              <div className="w-12 h-12 flex-shrink-0">
+                <img
+                  src={logoImage}
+                  alt="Dar al Asalah Tourism LLC"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <div className="font-montserrat text-base font-semibold">Dar al Asalah</div>
@@ -93,8 +98,12 @@ const Footer = () => {
         <div className="lg:hidden py-6">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
-                <span className="text-secondary-foreground text-sm font-bold">DA</span>
+              <div className="w-10 h-10">
+                <img
+                  src={logoImage}
+                  alt="Dar al Asalah Tourism LLC"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
                 <div className="font-montserrat text-sm font-semibold">Dar al Asalah</div>

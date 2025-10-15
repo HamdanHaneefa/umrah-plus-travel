@@ -224,3 +224,9 @@ All colors MUST be HSL.
     line-height: 1;
   }
 }
+
+@layer base {
+  body {
+    background-color: #F6EFE9;
+  }
+}

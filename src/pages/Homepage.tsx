@@ -15,6 +15,7 @@ const Homepage = () => {
       description: "Complete spiritual journey packages with accommodation and guidance",
       detail: "Starting from AED 1,500",
       link: "/umrah",
+      image: "/src/assets/umrah-services.jpg" // Add your image path
     },
     {
       icon: FileText,
@@ -22,6 +23,7 @@ const Homepage = () => {
       description: "Tourist, business, and family visit visas processed efficiently",
       detail: "Processing time: 3-5 days",
       link: "/visa",
+      image: "/src/assets/visa-services.jpg" // Add your image path
     },
     {
       icon: Globe,
@@ -29,6 +31,7 @@ const Homepage = () => {
       description: "Schengen, USA, UK, Canada visa services with expert consultation",
       detail: "Success rate: 95%+",
       link: "/visa",
+      image: "/src/assets/international-visa.jpg" // Add your image path
     },
     {
       icon: Plane,
@@ -36,6 +39,7 @@ const Homepage = () => {
       description: "Domestic and international flight reservations at competitive rates",
       detail: "24/7 support available",
       link: "/travel",
+      image: "/src/assets/flight-booking.jpg" // Add your image path
     },
     {
       icon: Hotel,
@@ -43,6 +47,7 @@ const Homepage = () => {
       description: "Worldwide accommodation booking from budget to luxury options",
       detail: "Best price guarantee",
       link: "/travel",
+      image: "/src/assets/hotel-booking.jpg" // Add your image path
     },
     {
       icon: Shield,
@@ -50,6 +55,7 @@ const Homepage = () => {
       description: "Comprehensive coverage for international and domestic travel",
       detail: "Instant policy issuance",
       link: "/travel",
+      image: "/src/assets/travel-insurance.jpg" // Add your image path
     },
   ];
 
@@ -223,22 +229,27 @@ const Homepage = () => {
 
       {/* Our Services */}
       <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-foreground mb-4">Our Services</h2>
-            <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive travel and visa services tailored to your needs
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <ServiceCard {...service} />
-              </div>
-            ))}
-          </div>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-foreground mb-4">Our Services</h2>
+      <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">
+        Comprehensive travel and visa services tailored to your needs
+      </p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div 
+          key={index} 
+          className="animate-fade-in" 
+          style={{ animationDelay: `${index * 0.1}s` }}
+        >
+          <ServiceCard {...service} />
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+      
       {/* <ServiceSection/> */}
 
       {/* Testimonials */}

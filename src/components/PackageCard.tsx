@@ -14,6 +14,12 @@ interface PackageCardProps {
 const PackageCard = ({ title, price, features, isPopular, variant = "default" }: PackageCardProps) => {
   const isPremium = variant === "premium";
 
+  const handleWhatsAppClick = () => {
+    const message = `Hi, I'm interested in the ${title} (${price})\n\nPackage Details:\n${features.map(f => `• ${f}`).join('\n')}\n\nPlease provide more information.`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=971525257136&text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <Card className={`relative hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 ${
       isPremium ? "border-2 border-secondary" : ""
@@ -45,8 +51,9 @@ const PackageCard = ({ title, price, features, isPopular, variant = "default" }:
           variant={isPremium ? "hero" : "default"}
           className="w-full"
           size="lg"
+          onClick={handleWhatsAppClick}
         >
-          Book Now
+          Enquire Now
         </Button>
       </CardContent>
     </Card>
