@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Plane, FileText, Globe, Hotel, Shield, Bus, CheckCircle, Star } from "lucide-react";
+import { ArrowRight, Plane, FileText, Globe, Hotel, Shield, CheckCircle, Star } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import PackageCard from "@/components/PackageCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import heroImage from "@/assets/heroImage2.png";
 import testimonialBg from "@/assets/testimonial_bg.jpg";
+import { motion } from "framer-motion";
 
 const Homepage = () => {
   const services = [
@@ -15,7 +16,7 @@ const Homepage = () => {
       description: "Complete spiritual journey packages with accommodation and guidance",
       detail: "Starting from AED 1,500",
       link: "/umrah",
-      image: "/src/assets/umrah-services.jpg" // Add your image path
+      image: "/placeholder.svg"
     },
     {
       icon: FileText,
@@ -23,7 +24,7 @@ const Homepage = () => {
       description: "Tourist, business, and family visit visas processed efficiently",
       detail: "Processing time: 3-5 days",
       link: "/visa",
-      image: "/src/assets/visa-services.jpg" // Add your image path
+      image: "/placeholder.svg"
     },
     {
       icon: Globe,
@@ -31,7 +32,7 @@ const Homepage = () => {
       description: "Schengen, USA, UK, Canada visa services with expert consultation",
       detail: "Success rate: 95%+",
       link: "/visa",
-      image: "/src/assets/international-visa.jpg" // Add your image path
+      image: "/placeholder.svg"
     },
     {
       icon: Plane,
@@ -39,7 +40,7 @@ const Homepage = () => {
       description: "Domestic and international flight reservations at competitive rates",
       detail: "24/7 support available",
       link: "/travel",
-      image: "/src/assets/flight-booking.jpg" // Add your image path
+      image: "/placeholder.svg"
     },
     {
       icon: Hotel,
@@ -47,7 +48,7 @@ const Homepage = () => {
       description: "Worldwide accommodation booking from budget to luxury options",
       detail: "Best price guarantee",
       link: "/travel",
-      image: "/src/assets/hotel-booking.jpg" // Add your image path
+      image: "/placeholder.svg"
     },
     {
       icon: Shield,
@@ -55,7 +56,7 @@ const Homepage = () => {
       description: "Comprehensive coverage for international and domestic travel",
       detail: "Instant policy issuance",
       link: "/travel",
-      image: "/src/assets/travel-insurance.jpg" // Add your image path
+      image: "/placeholder.svg"
     },
   ];
 
@@ -99,85 +100,120 @@ const Homepage = () => {
 
   const testimonials = [
     {
-      name: "Ahmed Al-Rashid",
-      text: "Excellent service for my family's Umrah journey. The arrangements were perfect and the team was very supportive. Highly recommended!",
+      name: "Sagir Ali",
+      text: "Highly recommended to everyone they made impossible to possible. Suggested to get there travel visas n tickets from them on good rates ❤️❤️ god bless them",
+      timeAgo: "a month ago"
     },
     {
-      name: "Fatima Hassan",
-      text: "Professional visa processing, got my UK visa without any issues. The team guided me through every step of the process.",
+      name: "Kashif Amjad",
+      text: "Good service in competitive prices",
+      timeAgo: "a month ago"
     },
     {
-      name: "Mohammed Ali",
-      text: "Best travel agency in Sharjah for all tourism needs. Been using their services for years and never disappointed.",
+      name: "Waseem Akram",
+      text: "Amazing Staff, Providing quality service with best prices.",
+      timeAgo: "8 hours ago"
     },
-  ];
-
-  const whyChooseUs = [
-    { icon: CheckCircle, title: "15+ Years Experience", description: "in travel and tourism industry" },
-    { icon: CheckCircle, title: "Licensed Agency", description: "by UAE tourism authorities" },
-    { icon: CheckCircle, title: "24/7 Customer Support", description: "for all your travel needs" },
-    { icon: CheckCircle, title: "Competitive Pricing", description: "without compromising service quality" },
-    { icon: CheckCircle, title: "Expert Guidance", description: "from experienced travel consultants" },
-    { icon: Star, title: "95% Success Rate", description: "for visa applications" },
+    {
+      name: "Sameer Mastoi",
+      text: "Excellent service and professional team. Highly satisfied with their support.",
+      timeAgo: "a month ago"
+    },
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-  <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-  <div
-    className="absolute inset-0 bg-cover bg-center animate-subtle-zoom"
-    style={{ 
-      backgroundImage: `url(${heroImage})`,
-      width: '120%',
-      height: '120%',
-      left: '-10%',
-      top: '-10%'
-    }}
-  />
-  {/* Lighter overlay for better text visibility */}
-  <div className="absolute inset-0 bg-black/25" />
-  
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h1 className="font-montserrat text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in-up drop-shadow-lg">
-      Your Gateway to Sacred Journeys
-    </h1>
-    <p className="font-inter text-xl md:text-2xl text-white/95 mb-8 max-w-3xl mx-auto animate-fade-in-up drop-shadow-md" style={{ animationDelay: "0.2s" }}>
-      Experience spiritual fulfillment with our expertly crafted Umrah packages and comprehensive travel services from Sharjah, UAE
-    </p>
-    <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-      <Button variant="secondary" size="lg" asChild>
-        <Link to="/umrah">
-          Explore Umrah Packages <ArrowRight className="ml-2 w-5 h-5" />
-        </Link>
-      </Button>
-      <Button variant="outline" size="lg" asChild className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-gray-900">
-        <Link to="/contact">Get Visa Quote</Link>
-      </Button>
-    </div>
-  </div>
-</section>
+      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: `url(${heroImage})`,
+            width: '120%',
+            height: '120%',
+            left: '-10%',
+            top: '-10%'
+          }}
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+        />
+        <div className="absolute inset-0 bg-black/25" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.h1 
+            className="font-montserrat text-4xl md:text-6xl lg:text-7xl font-medium text-white mb-6 drop-shadow-lg"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Your Gateway to Sacred Journeys
+          </motion.h1>
+          <motion.p 
+            className="font-inter text-xl md:text-2xl text-white/95 mb-8 max-w-3xl mx-auto drop-shadow-md"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Experience spiritual fulfillment with our expertly crafted Umrah packages and comprehensive travel services from Sharjah, UAE
+          </motion.p>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <Button variant="secondary" size="lg" asChild data-testid="button-explore-umrah">
+              <Link to="/umrah">
+                Explore Umrah Packages <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-gray-900" data-testid="button-visa-quote">
+              <Link to="/contact">Get Visa Quote</Link>
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Featured Umrah Packages */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-foreground mb-4">Featured Umrah Packages</h2>
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="font-montserrat text-3xl md:text-4xl font-medium text-foreground mb-4">Featured Umrah Packages</h2>
             <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">
               Experience the spiritual journey of a lifetime with our carefully curated packages
             </p>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredPackages.map((pkg, index) => (
-              <div key={index} className="animate-scale-in" style={{ animationDelay: `${index * 0.15}s` }}>
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+              >
                 <PackageCard {...pkg} />
-              </div>
+              </motion.div>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Button variant="hero" size="lg" asChild>
+          <motion.div 
+            className="text-center mt-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Button variant="hero" size="lg" asChild data-testid="button-view-packages">
               <Link to="/umrah">View All Packages <ArrowRight className="ml-2 w-5 h-5" /></Link>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -185,18 +221,27 @@ const Homepage = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Left: image */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               <img
                 src={heroImage}
                 alt="Umrah"
                 className="w-full h-[420px] object-cover rounded-lg shadow-lg"
               />
-            </div>
+            </motion.div>
 
-            {/* Right: heading, copy, stats */}
-            <div className="text-left">
-              <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-foreground mb-6">
+            <motion.div 
+              className="text-left"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-medium leading-tight text-foreground mb-6">
                 Make Your Journey Comfortable and Meaningful
               </h2>
 
@@ -207,50 +252,77 @@ const Homepage = () => {
               </p>
 
               <div className="mt-8 grid grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="font-oswald text-3xl md:text-4xl font-bold text-amber-500">300</div>
+                <motion.div 
+                  className="text-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <div className="font-oswald text-3xl md:text-4xl font-semibold text-amber-500" data-testid="text-stat-tours">300</div>
                   <div className="font-inter text-sm text-muted-foreground mt-1">Successful Tours</div>
-                </div>
+                </motion.div>
 
-                <div className="text-center">
-                  <div className="font-oswald text-3xl md:text-4xl font-bold text-amber-500">24,000</div>
+                <motion.div 
+                  className="text-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
+                  <div className="font-oswald text-3xl md:text-4xl font-semibold text-amber-500" data-testid="text-stat-tourists">24,000</div>
                   <div className="font-inter text-sm text-muted-foreground mt-1">Happy Tourists</div>
-                </div>
+                </motion.div>
 
-                <div className="text-center">
-                  <div className="font-oswald text-3xl md:text-4xl font-bold text-amber-500">200</div>
+                <motion.div 
+                  className="text-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <div className="font-oswald text-3xl md:text-4xl font-semibold text-amber-500" data-testid="text-stat-places">200</div>
                   <div className="font-inter text-sm text-muted-foreground mt-1">Places Explored</div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Our Services */}
       <section className="py-20 bg-background">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12">
-      <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-foreground mb-4">Our Services</h2>
-      <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">
-        Comprehensive travel and visa services tailored to your needs
-      </p>
-    </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {services.map((service, index) => (
-        <div 
-          key={index} 
-          className="animate-fade-in" 
-          style={{ animationDelay: `${index * 0.1}s` }}
-        >
-          <ServiceCard {...service} />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="font-montserrat text-3xl md:text-4xl font-medium text-foreground mb-4">Our Services</h2>
+            <p className="font-inter text-lg text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive travel and visa services tailored to your needs
+            </p>
+          </motion.div>
+          
+          {/* Mobile: Horizontal scroll, Desktop: Grid 2 cols per row */}
+          <div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 flex md:flex-none overflow-x-auto md:overflow-visible gap-4 pb-4 md:pb-0 snap-x snap-mandatory md:snap-none">
+            {services.map((service, index) => (
+              <motion.div 
+                key={index} 
+                className="flex-shrink-0 w-80 md:w-auto snap-center md:snap-align-none"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <ServiceCard {...service} />
+              </motion.div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-      
-      {/* <ServiceSection/> */}
+      </section>
 
       {/* Testimonials */}
       <section
@@ -263,27 +335,40 @@ const Homepage = () => {
         }}
       >
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-foreground text-center mb-12">Tourist Feedback</h2>
+          <motion.h2 
+            className="font-montserrat text-3xl md:text-4xl font-medium text-foreground text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Tourist Feedback
+          </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Mobile: Horizontal scroll, Desktop: Grid */}
+          <div className="md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 flex md:flex-none overflow-x-auto md:overflow-visible gap-4 pb-4 md:pb-0 snap-x snap-mandatory md:snap-none">
             {testimonials.map((t, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="bg-white rounded-lg p-6 shadow-lg flex flex-col"
+                className="bg-white rounded-lg p-6 shadow-lg flex flex-col flex-shrink-0 w-80 md:w-auto snap-center md:snap-align-none"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <p className="font-inter text-muted-foreground mb-4 text-sm leading-relaxed line-clamp-4">{t.text}</p>
+                <p className="font-inter text-muted-foreground mb-4 text-sm leading-relaxed line-clamp-4" data-testid={`text-testimonial-${i}`}>{t.text}</p>
 
                 <div className="flex items-center mt-auto pt-4">
-                  <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-base font-semibold text-foreground mr-3 overflow-hidden flex-shrink-0 font-inter">
+                  <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center text-base font-medium text-foreground mr-3 overflow-hidden flex-shrink-0 font-inter">
                     {t.name.split(" ").map(s => s[0]).slice(0,2).join("")}
                   </div>
 
                   <div>
-                    <div className="font-inter font-semibold text-foreground text-sm">{t.name}</div>
-                    <div className="font-inter text-xs text-muted-foreground">Happy Traveller</div>
+                    <div className="font-inter font-medium text-foreground text-sm" data-testid={`text-name-${i}`}>{t.name}</div>
+                    <div className="font-inter text-xs text-muted-foreground">{t.timeAgo}</div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -299,11 +384,15 @@ const Homepage = () => {
     <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left: Content */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               <div className="mb-6">
                 <p className="font-inter text-sm uppercase tracking-wider text-muted-foreground mb-2">LOCATIONS</p>
-                <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-foreground mb-4">
+                <h2 className="font-montserrat text-3xl md:text-4xl font-medium text-foreground mb-4">
                   Located in <span className="text-red-600">the heart of Sharjah</span>
                 </h2>
               </div>
@@ -316,13 +405,13 @@ const Homepage = () => {
                 <div className="flex items-start">
                   <div className="w-2 h-2 bg-red-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <div>
-                    <h3 className="font-inter font-semibold text-foreground">Main Office - Sharjah</h3>
+                    <h3 className="font-inter font-medium text-foreground">Main Office - Sharjah</h3>
                     <p className="font-inter text-sm text-muted-foreground">10 Maleha St, opposite Dibba Bakery, Sharjah, UAE</p>
                   </div>
                 </div>
               </div>
 
-              <Button variant="default" size="lg" asChild>
+              <Button variant="default" size="lg" asChild data-testid="button-directions">
                 <a 
                   href="https://www.google.com/maps/dir//DAR+AL+ASALAH+TOURISM+LLC+-+10+Maleha+St+-+opp.+Dibba+Bekary+-+Sharjah+-+United+Arab+Emirates/@25.2906294,55.4439761,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x3e5f5f002b85f161:0x40eff993c97df802!2m2!1d55.4439761!2d25.2906294!3e0?entry=ttu"
                   target="_blank"
@@ -331,10 +420,15 @@ const Homepage = () => {
                   Get Directions
                 </a>
               </Button>
-            </div>
+            </motion.div>
 
-            {/* Right: Map */}
-            <div className="h-[500px] rounded-lg overflow-hidden shadow-lg">
+            <motion.div 
+              className="h-[500px] rounded-lg overflow-hidden shadow-lg"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.2636948679886!2d55.44179207542!3d25.29062947763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f002b85f161%3A0x40eff993c97df802!2sDAR%20AL%20ASALAH%20TOURISM%20LLC!5e0!3m2!1sen!2s!4v1729000000000!5m2!1sen!2s"
                 width="100%"
@@ -345,7 +439,7 @@ const Homepage = () => {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="DAR AL ASALAH TOURISM LLC Location"
               ></iframe>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -353,18 +447,38 @@ const Homepage = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-primary text-primary-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-6">Ready to Begin Your Journey?</h2>
-          <p className="font-inter text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+          <motion.h2 
+            className="font-montserrat text-3xl md:text-4xl font-medium mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Ready to Begin Your Journey?
+          </motion.h2>
+          <motion.p 
+            className="font-inter text-xl mb-8 opacity-90 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             Contact us today to plan your spiritual journey or process your visa applications
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
+          </motion.p>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Button variant="secondary" size="lg" asChild data-testid="button-contact-cta">
               <Link to="/contact">Contact Us Now</Link>
             </Button>
-            <Button variant="outline" size="lg" asChild className="border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <Button variant="outline" size="lg" asChild className="border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" data-testid="button-call">
               <a href="tel:+971525257136">Call +971 52 52 57 136</a>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
