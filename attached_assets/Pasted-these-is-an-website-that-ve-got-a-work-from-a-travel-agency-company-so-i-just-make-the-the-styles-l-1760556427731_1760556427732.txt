@@ -1,0 +1,52 @@
+these is an website that've got a work from a travel agency company
+so i just make the the styles little bit clear so i wanted to make more userfriendly an wanted to make some changes
+so the first one is the consistency means i just make the changes only in the homepage other pages i didnt check it as well means i didnt spend time for it so use the card or any other things same style in other sections too to make the considtency an to make the professinalis
+
+i should wanted to add the framer motin in my website it is not added now so i wanted to add that to make more user friendly
+
+then the font the font weight is very over everywhere so make a standard simple font weight make the same font family as it but the font weight is somewhere is very large so ensure that
+
+whenever the card showing section is there make the cards showing in mobile as horizontally means now it shows as vertically an it takes a lot of space so fix that issue , an also service section the mobile view is shows one card in one row instead want to show two card in one row it is a important one , an some of the images are not working in there an they are not a matcing image so gave a matching image for the service cards
+
+ensure that dontn use the blue cooperative bank color in my website there is a color blue sea color in my logo i decided to use that color i've provided that color in here (#0192D8, #203D77)
+tehse color is using on the logo so use that
+ensure dont use the cooperateive blue color it uses in some place so remove that
+
+tourist feedback section actually it is a testimonial section so make it standard command inside it now it is fake details make the style as it is but in the mobile view it takes lot of space so fix that issue
+
+Sagir Ali
+4 reviews
+a month ago
+Highly recommended to everyone they made impossible to possible
+Suggested to get there travel visas n tickets from them on good rates ❤️❤️ god bless them
+❤️1
+DAR AL ASALAH TOURISM LLC (owner)
+8 hours ago
+Thank You ❤️
+Kashif Amjad
+3 reviews
+a month ago
+Good service in competitive prices
+❤️1
+DAR AL ASALAH TOURISM LLC (owner)
+8 hours ago
+Thank You ❤️
+Waseem Akram
+1 review·1 photo
+8 hours ago
+New
+Amazing Staff, Providing quality service with best prices.
+DAR AL ASALAH TOURISM LLC (owner)
+8 hours ago
+Thank You ❤️ For sharing
+Sameer Mastoi
+5 reviews·15 photos
+a month ago
+DAR AL ASALAH TOURISM LLC (owner)
+8 hours ago
+Thank You ❤️
+
+some of the testimoneials that've provided in here
+the response of yours will be wanted to do without reach the limit of the free replit so ensure that too
+
+use some animation an parallax effect is some place reduce the font weight an make a standardable weight of it change the font family of navitems so these are my needs make the website with my needs
