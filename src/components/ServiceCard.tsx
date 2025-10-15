@@ -18,10 +18,10 @@ const ServiceCard = ({ icon: Icon, title, description, detail, link }: ServiceCa
         <div className="w-14 h-14 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
           <Icon className="w-7 h-7 text-primary-foreground" />
         </div>
-        <h3 className="text-xl font-semibold text-foreground mb-2">{title}</h3>
-        <p className="text-muted-foreground text-sm mb-3">{description}</p>
+        <h3 className="font-montserrat text-xl font-semibold text-foreground mb-2">{title}</h3>
+        <p className="font-inter text-muted-foreground text-sm mb-3">{description}</p>
         {detail && (
-          <p className="text-sm font-medium text-secondary mb-4">{detail}</p>
+          <p className="font-inter text-sm font-medium text-secondary mb-4">{detail}</p>
         )}
         {link && (
           <Button variant="outline" size="sm" asChild className="mt-2">

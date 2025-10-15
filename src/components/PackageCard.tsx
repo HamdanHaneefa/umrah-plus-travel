@@ -24,10 +24,10 @@ const PackageCard = ({ title, price, features, isPopular, variant = "default" }:
         </Badge>
       )}
       <CardHeader className={isPremium ? "bg-gradient-primary text-primary-foreground" : ""}>
-        <CardTitle className="text-2xl">{title}</CardTitle>
+        <CardTitle className="font-montserrat text-2xl">{title}</CardTitle>
         <div className="mt-4">
-          <span className="text-4xl font-bold">{price}</span>
-          <span className={`text-sm ml-2 ${isPremium ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
+          <span className="font-oswald text-4xl font-bold">{price}</span>
+          <span className={`font-inter text-sm ml-2 ${isPremium ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
             per person
           </span>
         </div>
@@ -37,7 +37,7 @@ const PackageCard = ({ title, price, features, isPopular, variant = "default" }:
           {features.map((feature, index) => (
             <li key={index} className="flex items-start space-x-3">
               <Check className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-              <span className="text-sm text-foreground">{feature}</span>
+              <span className="font-inter text-sm text-foreground">{feature}</span>
             </li>
           ))}
         </ul>
