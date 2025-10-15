@@ -92,7 +92,7 @@ const Navbar = () => {
               className="w-16 h-16 object-contain"
             />
             <div className="hidden sm:block">
-              <span className="text-xl font-bold text-gray-900 drop-shadow-sm tracking-tight">Dar al Asalah</span>
+              <span className="text-xl font-medium text-gray-900 drop-shadow-sm tracking-tight">Dar al Asalah</span>
               <p className="text-sm text-gray-600 drop-shadow-sm font-light">Tourism LLC</p>
             </div>
           </Link>
@@ -104,12 +104,12 @@ const Navbar = () => {
                 <div key="services" className="relative services-dropdown group">
                   <button
                     onClick={() => setIsServicesOpen(!isServicesOpen)}
-                    className="relative text-gray-700 font-medium text-[15px] py-2 transition-colors duration-300 hover:text-gray-900 flex items-center space-x-1"
+                    className="relative text-gray-700 font-normal text-[15px] py-2 transition-colors duration-300 hover:text-gray-900 flex items-center space-x-1"
                   >
                     <span>Services</span>
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  <span className={`absolute bottom-0 left-0 h-0.5 bg-[#06AAF2] transition-all duration-300 ${
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
                     serviceLinks.some(s => isActive(s.path)) 
                       ? 'w-full' 
                       : 'w-0 group-hover:w-full'
@@ -124,7 +124,7 @@ const Navbar = () => {
                           onClick={() => setIsServicesOpen(false)}
                           className={`block px-4 py-3 text-sm font-medium transition-colors duration-200 ${
                             isActive(service.path)
-                              ? "bg-[#06AAF2] text-white"
+                              ? "bg-primary text-white"
                               : "text-gray-700 hover:bg-gray-50"
                           }`}
                         >
@@ -138,10 +138,10 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="relative text-gray-700 font-medium text-[15px] py-2 transition-colors duration-300 hover:text-gray-900 group"
+                  className="relative text-gray-700 font-normal text-[15px] py-2 transition-colors duration-300 hover:text-gray-900 group"
                 >
                   {link.name}
-                  <span className={`absolute bottom-0 left-0 h-0.5 bg-[#06AAF2] transition-all duration-300 ${
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
                     isActive(link.path) 
                       ? 'w-full' 
                       : 'w-0 group-hover:w-full'
@@ -156,7 +156,8 @@ const Navbar = () => {
             <Button 
               size="sm" 
               asChild 
-              className="bg-[#008AD2] hover:bg-[#0077b6] text-white font-medium px-6 py-2 rounded-md transition-colors duration-300"
+              className="bg-primary hover:bg-primary-dark text-white font-normal px-6 py-2 rounded-md transition-colors duration-300"
+              data-testid="button-get-started"
             >
               <Link to="/contact">Get Started</Link>
             </Button>
@@ -181,9 +182,9 @@ const Navbar = () => {
                 <div key="services-mobile" className="services-dropdown-mobile">
                   <button
                     onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                    className={`w-full text-left px-4 py-3 rounded-md text-sm font-medium transition-all duration-300 flex items-center justify-between ${
+                    className={`w-full text-left px-4 py-3 rounded-md text-sm font-normal transition-all duration-300 flex items-center justify-between ${
                       serviceLinks.some(s => isActive(s.path))
-                        ? "bg-[#06AAF2] text-white"
+                        ? "bg-primary text-white"
                         : "text-gray-700 hover:bg-gray-100"
                     }`}
                   >
@@ -201,9 +202,9 @@ const Navbar = () => {
                             setIsOpen(false);
                             setIsMobileServicesOpen(false);
                           }}
-                          className={`block px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                          className={`block px-4 py-2 rounded-md text-sm font-normal transition-all duration-300 ${
                             isActive(service.path)
-                              ? "bg-[#06AAF2] text-white"
+                              ? "bg-primary text-white"
                               : "text-gray-700 hover:bg-gray-100"
                           }`}
                         >
@@ -218,9 +219,9 @@ const Navbar = () => {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 rounded-md text-sm font-medium transition-all duration-300 ${
+                  className={`block px-4 py-3 rounded-md text-sm font-normal transition-all duration-300 ${
                     isActive(link.path)
-                      ? "bg-[#06AAF2] text-white"
+                      ? "bg-primary text-white"
                       : "text-gray-700 hover:bg-gray-100"
                   }`}
                 >
@@ -230,8 +231,9 @@ const Navbar = () => {
             ))}
             
             <Button 
-              className="w-full bg-[#008AD2] hover:bg-[#0077b6] text-white font-medium" 
+              className="w-full bg-primary hover:bg-primary-dark text-white font-normal" 
               asChild
+              data-testid="button-mobile-get-started"
             >
               <Link to="/contact" onClick={() => setIsOpen(false)}>Get Started</Link>
             </Button>

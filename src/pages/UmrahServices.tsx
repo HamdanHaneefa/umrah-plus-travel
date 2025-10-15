@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, X, ArrowRight } from "lucide-react";
 import PackageCard from "@/components/PackageCard";
 import heroImage from "@/assets/hero-umrah.jpg";
+import { motion } from "framer-motion";
 
 const UmrahServices = () => {
   const packages = [
@@ -107,29 +108,51 @@ const UmrahServices = () => {
           <div className="absolute inset-0 bg-gradient-hero"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6">
+          <motion.h1 
+            className="text-4xl md:text-6xl font-medium text-primary-foreground mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             Umrah Services
-          </h1>
-          <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
             Experience the spiritual journey of a lifetime with complete packages including flights, accommodation, and expert guidance
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* Packages */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Umrah Package Categories</h2>
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-medium text-foreground mb-4">Umrah Package Categories</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Choose from our range of packages designed to suit different needs and budgets
             </p>
-          </div>
+          </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {packages.map((pkg, index) => (
-              <div key={index} className="animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
                 <PackageCard {...pkg} />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
