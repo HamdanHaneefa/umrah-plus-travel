@@ -53,7 +53,7 @@ const UmrahServices = () => {
     },
     {
       title: "VIP Package",
-      price: "AED 4,400",
+      price: "AED 4,399",
       features: [
         "Business class flight option available",
         "Luxury 5-star hotel with Haram view",
