@@ -70,7 +70,7 @@ const VisaServices = () => {
     },
     {
       title: "USA Tourist Visa (B1/B2)",
-      price: "AED 1,500 + embassy fees",
+      price: "AED 1,499 + embassy fees",
       processing: "3-6 weeks",
       validity: "Up to 10 years (multiple entry)",
       interview: "Required at US Consulate",

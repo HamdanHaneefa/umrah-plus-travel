@@ -29,7 +29,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Office Address",
-      details: ["Industrial Area 1, Behind Sharjah Grand Mosque", "P.O. Box: 12345, Sharjah, UAE"],
+      details: ["10 Maleha St - opp. Dibba Bekary - Industrial Area 15 - Industrial Area - Sharjah"],
     },
     {
       icon: Phone,

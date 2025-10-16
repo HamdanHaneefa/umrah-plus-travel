@@ -14,7 +14,7 @@ const Homepage = () => {
       icon: Plane,
       title: "Umrah Packages",
       description: "Complete spiritual journey packages with accommodation and guidance",
-      detail: "Starting from AED 1,500",
+      detail: "Starting from AED 1,499",
       link: "/umrah",
       image: "/placeholder.svg"
     },
@@ -63,7 +63,7 @@ const Homepage = () => {
   const featuredPackages = [
     {
       title: "Economy Package",
-      price: "AED 1,500",
+      price: "AED 1,499",
       features: [
         "Bus transportation from UAE",
         "3-star hotel accommodation",
@@ -86,7 +86,7 @@ const Homepage = () => {
     },
     {
       title: "Premium Package",
-      price: "AED 3,500",
+      price: "AED 3,499",
       features: [
         "Priority flight booking",
         "5-star hotel walking distance to Haram",

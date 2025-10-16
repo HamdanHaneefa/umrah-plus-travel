@@ -9,7 +9,7 @@ const UmrahServices = () => {
   const packages = [
     {
       title: "Economy Package",
-      price: "AED 1,500",
+      price: "AED 1,499",
       features: [
         "Bus transportation from UAE to Saudi Arabia",
         "3-star hotel in Makkah (1km from Haram)",
@@ -38,7 +38,7 @@ const UmrahServices = () => {
     },
     {
       title: "Premium Package",
-      price: "AED 3,500",
+      price: "AED 3,499",
       features: [
         "Priority flight booking",
         "5-star hotel in Makkah (200m from Haram)",
