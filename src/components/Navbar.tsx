@@ -75,7 +75,7 @@ const Navbar = () => {
   }, [isServicesOpen, isMobileServicesOpen]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 pt-2 sm:pt-0 ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
     } ${
       isScrolled 
@@ -83,17 +83,17 @@ const Navbar = () => {
         : 'bg-transparent transition-all duration-300'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3 pl-4 sm:pl-0 h-full">
             <img 
               src={logoImage} 
               alt="Dar al Asalah Tourism LLC" 
-              className="w-16 h-16 object-contain"
+              className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
             />
-            <div className="hidden sm:block">
-              <span className="text-xl font-medium text-gray-900 drop-shadow-sm tracking-tight">Dar al Asalah</span>
-              <p className="text-sm text-gray-600 drop-shadow-sm font-light">Tourism LLC</p>
+            <div className="flex flex-col justify-center h-full">
+              <span className="text-sm sm:text-xl font-medium text-gray-900 tracking-tight leading-tight">Dar al Asalah</span>
+              <p className="text-[10px] sm:text-sm text-gray-600 font-light leading-tight">Tourism LLC</p>
             </div>
           </Link>
 

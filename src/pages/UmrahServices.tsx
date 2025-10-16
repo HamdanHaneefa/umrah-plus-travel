@@ -100,16 +100,16 @@ const UmrahServices = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div 
+      <section className="relative h-[40vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
+         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 bg-gradient-hero"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-amber-900/50 via-orange-900/40 to-amber-950/55"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
-            className="text-4xl md:text-6xl font-medium text-primary-foreground mb-6"
+            className="text-4xl md:text-7xl font-medium text-primary-foreground mb-6 drop-shadow-lg"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -117,7 +117,7 @@ const UmrahServices = () => {
             Umrah Services
           </motion.h1>
           <motion.p 
-            className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto"
+            className="text-base md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}

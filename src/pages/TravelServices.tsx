@@ -161,18 +161,18 @@ const TravelServices = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div 
+      <section className="relative h-[40vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
+         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${flightImage})` }}
         >
-          <div className="absolute inset-0 bg-gradient-hero"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-amber-900/50 via-orange-900/40 to-amber-950/55"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6">
+          <h1 className="text-4xl md:text-7xl font-medium text-primary-foreground mb-4 drop-shadow-lg">
             Travel Services
           </h1>
-          <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto">
+          <p className="text-base md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto">
             Complete travel solutions including flights, hotels, holiday packages, and insurance
           </p>
         </div>
@@ -185,9 +185,9 @@ const TravelServices = () => {
             <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <Plane className="w-8 h-8 text-primary-foreground" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Flight Booking Services</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-foreground mb-4">Flight Booking Services</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Competitive rates for domestic and international flights with 24/7 support
+               Competitive rates for domestic and international flights with 24/7 support
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -219,9 +219,9 @@ const TravelServices = () => {
             <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <Hotel className="w-8 h-8 text-primary-foreground" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Hotel Reservation Services</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-foreground mb-4">Hotel Reservation Services</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Worldwide accommodation from budget-friendly to luxury options
+               Worldwide accommodation from budget-friendly to luxury options
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -253,9 +253,9 @@ const TravelServices = () => {
             <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <MapPin className="w-8 h-8 text-primary-foreground" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Holiday Packages</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-foreground mb-4">Holiday Packages</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Curated travel experiences for UAE and international destinations
+               Curated travel experiences for UAE and international destinations
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -292,9 +292,9 @@ const TravelServices = () => {
             <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <Shield className="w-8 h-8 text-primary-foreground" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Travel Insurance</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-foreground mb-4">Travel Insurance</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive protection for worry-free travel
+               Comprehensive protection for worry-free travel
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -334,9 +334,9 @@ const TravelServices = () => {
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Ground Transportation</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-foreground mb-4">Ground Transportation</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comfortable and reliable transfers for all your travel needs
+               Comfortable and reliable transfers for all your travel needs
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -369,9 +369,9 @@ const TravelServices = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-primary text-primary-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Plan Your Next Trip?</h2>
+          <h2 className="text-3xl md:text-4xl font-medium mb-6">Ready to Plan Your Next Trip?</h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Let our travel experts create the perfect itinerary for you
+             Let our travel experts create the perfect itinerary for you
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>

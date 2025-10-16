@@ -21,7 +21,7 @@ const PackageCard = ({ title, price, features, isPopular, variant = "default" }:
   };
 
   return (
-    <Card className={`relative hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 ${
+    <Card className={`relative h-full flex flex-col hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 ${
       isPremium ? "border-2 border-secondary" : ""
     }`}>
       {isPopular && (
@@ -38,7 +38,7 @@ const PackageCard = ({ title, price, features, isPopular, variant = "default" }:
           </span>
         </div>
       </CardHeader>
-      <CardContent className="pt-6">
+      <CardContent className="pt-6 flex-1 flex flex-col">
         <ul className="space-y-3 mb-6">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start space-x-3">
@@ -47,14 +47,16 @@ const PackageCard = ({ title, price, features, isPopular, variant = "default" }:
             </li>
           ))}
         </ul>
-        <Button
-          variant={isPremium ? "hero" : "default"}
-          className="w-full"
-          size="lg"
-          onClick={handleWhatsAppClick}
-        >
-          Enquire Now
-        </Button>
+        <div className="mt-auto">
+          <Button
+            variant={isPremium ? "hero" : "default"}
+            className="w-full"
+            size="lg"
+            onClick={handleWhatsAppClick}
+          >
+            Enquire Now
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );
