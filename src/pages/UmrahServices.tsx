@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, X, ArrowRight } from "lucide-react";
 import PackageCard from "@/components/PackageCard";
-import heroImage from "@/assets/hero-umrah.jpg";
+import heroImage from "@/assets/hero_umrah.png";
 import { motion } from "framer-motion";
 
 const UmrahServices = () => {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const location = useLocation();
+  const lastScrollY = useRef(0);
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -28,27 +29,28 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   useEffect(() => {
-    let hideTimeout: NodeJS.Timeout;
-
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      
-      if (hideTimeout) {
-        clearTimeout(hideTimeout);
-      }
+      const current = window.scrollY;
 
-      if (scrollTop < 50) {
+      // At top: reset to visible and not-scrolled
+      if (current <= 50) {
         setIsScrolled(false);
         setIsVisible(true);
+        lastScrollY.current = current;
         return;
       }
 
+      // mark as scrolled for background
       setIsScrolled(true);
-      setIsVisible(true);
 
-      hideTimeout = setTimeout(() => {
+      // If scrolling down -> hide; scrolling up -> show
+      if (current > lastScrollY.current + 10) {
         setIsVisible(false);
-      }, 4000);
+      } else if (current < lastScrollY.current - 10) {
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = current;
     };
 
     const handleClickOutside = (event: MouseEvent) => {
@@ -68,9 +70,6 @@ const Navbar = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
-      if (hideTimeout) {
-        clearTimeout(hideTimeout);
-      }
     };
   }, [isServicesOpen, isMobileServicesOpen]);
 
@@ -89,16 +88,17 @@ const Navbar = () => {
             <img 
               src={logoImage} 
               alt="Dar al Asalah Tourism LLC" 
-              className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
+              className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
             />
             <div className="flex flex-col justify-center h-full">
-              <span className="text-sm sm:text-xl font-medium text-gray-900 tracking-tight leading-tight">Dar al Asalah</span>
-              <p className="text-[10px] sm:text-sm text-gray-600 font-light leading-tight">Tourism LLC</p>
+              <span className="text-sm sm:text-base font-bold text-gray-900 tracking-tight leading-tight">Dar al Asalah</span>
+              <p className="text-[10px] sm:text-xs text-gray-600 font-medium leading-tight">Tourism LLC</p>
+              <p className="text-[10px] sm:text-xs text-gray-600 font-medium leading-tight">Sharjah</p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8 ml-auto mr-24">
+          <div className="hidden lg:flex items-center space-x-8 ml-auto mr-8">
             {navLinks.map((link) => (
               link.isDropdown ? (
                 <div key="services" className="relative services-dropdown group">

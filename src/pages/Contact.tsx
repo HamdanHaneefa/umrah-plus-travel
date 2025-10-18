@@ -34,7 +34,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone Numbers",
-      details: ["+971 52 52 57 136", "+971 52 78 74 282", "+971 6 531 2345"],
+      details: ["+971 52 52 57 136", "+971 52 78 74 282", "+971 6 527 5166"],
     },
     {
       icon: Mail,

@@ -5,6 +5,7 @@ import ServiceCard from "@/components/ServiceCard";
 import PackageCard from "@/components/PackageCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import heroImage from "@/assets/heroImage2.png";
+import MakeyourJourney from "@/assets/make_journey.png";
 import testimonialBg from "@/assets/testimonial_bg.jpg";
 import { motion } from "framer-motion";
 
@@ -16,7 +17,7 @@ const Homepage = () => {
       description: "Complete spiritual journey packages with accommodation and guidance",
       detail: "Starting from AED 1,499",
       link: "/umrah",
-      image: "/placeholder.svg"
+      image: "https://user-gen-media-assets.s3.amazonaws.com/seedream_images/47d2d08c-8752-40f8-88e8-884845f524f5.png"
     },
     {
       icon: FileText,
@@ -24,7 +25,7 @@ const Homepage = () => {
       description: "Tourist, business, and family visit visas processed efficiently",
       detail: "Processing time: 3-5 days",
       link: "/visa",
-      image: "/placeholder.svg"
+      image: "https://user-gen-media-assets.s3.amazonaws.com/seedream_images/376a5195-6f5b-45e9-af57-9865afed3cd6.png"
     },
     {
       icon: Globe,
@@ -32,7 +33,7 @@ const Homepage = () => {
       description: "Schengen, USA, UK, Canada visa services with expert consultation",
       detail: "Success rate: 95%+",
       link: "/visa",
-      image: "/placeholder.svg"
+      image: "https://user-gen-media-assets.s3.amazonaws.com/seedream_images/94364aca-ce92-4410-9574-9bd88e99b487.png"
     },
     {
       icon: Plane,
@@ -40,7 +41,7 @@ const Homepage = () => {
       description: "Domestic and international flight reservations at competitive rates",
       detail: "24/7 support available",
       link: "/travel",
-      image: "/placeholder.svg"
+      image: "https://user-gen-media-assets.s3.amazonaws.com/seedream_images/adcfa212-93cd-487b-bfb1-42ac135d30b1.png"
     },
     {
       icon: Hotel,
@@ -48,7 +49,7 @@ const Homepage = () => {
       description: "Worldwide accommodation booking from budget to luxury options",
       detail: "Best price guarantee",
       link: "/travel",
-      image: "/placeholder.svg"
+      image: "https://user-gen-media-assets.s3.amazonaws.com/seedream_images/35afff5b-6ccc-44ea-9fd9-1ba17d2263db.png"
     },
     {
       icon: Shield,
@@ -56,9 +57,11 @@ const Homepage = () => {
       description: "Comprehensive coverage for international and domestic travel",
       detail: "Instant policy issuance",
       link: "/travel",
-      image: "/placeholder.svg"
+      image: "https://user-gen-media-assets.s3.amazonaws.com/seedream_images/3b1284e0-7791-4b78-a4f4-d24719acec98.png"
     },
   ];
+
+
 
   const featuredPackages = [
     {
@@ -228,7 +231,7 @@ const Homepage = () => {
               transition={{ duration: 0.8 }}
             >
               <img
-                src={heroImage}
+                src={MakeyourJourney}
                 alt="Umrah"
                 className="w-full h-[420px] object-cover rounded-lg shadow-lg"
               />
@@ -476,7 +479,7 @@ const Homepage = () => {
               <Link to="/contact">Contact Us Now</Link>
             </Button>
             <Button variant="outline" size="lg" asChild className="border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" data-testid="button-call">
-              <a href="tel:+971525257136">Call +971 52 52 57 136</a>
+              <a href="tel:+971527874282">Call +971 52 78 74 282</a>
             </Button>
           </motion.div>
         </div>
