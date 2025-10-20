@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Plane, FileText, Globe, Hotel, Shield, CheckCircle, Star } from "lucide-react";
@@ -10,6 +11,7 @@ import testimonialBg from "@/assets/testimonial_bg.jpg";
 import { motion } from "framer-motion";
 
 const Homepage = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
   const services = [
     {
       icon: Plane,
@@ -124,18 +126,37 @@ const Homepage = () => {
     },
   ];
 
+  useEffect(() => {
+    let mounted = true;
+    const img = new Image();
+    img.src = heroImage;
+    img.onload = () => {
+      if (mounted) setIsLoaded(true);
+    };
+    // fallback to avoid stuck loader
+    const fallback = setTimeout(() => mounted && setIsLoaded(true), 5000);
+    return () => {
+      mounted = false;
+      clearTimeout(fallback);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
+    <div className="min-h-screen overflow-x-hidden relative">
+      {!isLoaded && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
+          <div className="w-14 h-14 border-4 border-primary rounded-full border-t-transparent animate-spin" aria-hidden="true"></div>
+        </div>
+      )}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{ 
             backgroundImage: `url(${heroImage})`,
-            width: '120%',
-            height: '120%',
-            left: '-10%',
-            top: '-10%'
+            width: '110%',
+            height: '110%',
+            left: '-5%',
+            top: '-5%'
           }}
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
