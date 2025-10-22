@@ -500,7 +500,7 @@ const Homepage = () => {
               <Link to="/contact">Contact Us Now</Link>
             </Button>
             <Button variant="outline" size="lg" asChild className="border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary" data-testid="button-call">
-              <a href="tel:+971527874282">Call +971 52 78 74 282</a>
+              <a href="tel:+971527874282">Call +971 6 527 5166</a>
             </Button>
           </motion.div>
         </div>
