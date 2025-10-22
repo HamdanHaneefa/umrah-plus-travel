@@ -23,7 +23,7 @@ const UmrahServices = () => {
     },
     {
       title: "Standard Package",
-      price: "AED 3,100",
+      price: "AED 3,099",
       features: [
         "Round-trip economy flight included",
         "4-star hotel in Makkah (500m from Haram)",

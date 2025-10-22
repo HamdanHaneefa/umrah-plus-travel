@@ -79,7 +79,7 @@ const Homepage = () => {
     },
     {
       title: "Standard Package",
-      price: "AED 3,100",
+      price: "AED 3,099",
       features: [
         "Round-trip flight included",
         "4-star hotel near Haram",
