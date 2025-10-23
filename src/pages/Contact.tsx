@@ -91,6 +91,13 @@ const Contact = () => {
     },
     {
       icon: MapPin,
+      title: "Ajman Office",
+      details: ["Shop # 01, Amr Ibn El Ass Street, Near Lucky Roundabout, Ind Area 2, Ajman, UAE"],
+      type: "address",
+      link: "https://maps.app.goo.gl/RmBGkkykPmnZbg5T8",
+    },
+    {
+      icon: MapPin,
       title: "Pakistan Office",
       details: ["Shop No/2 First Floor, Ch. Tanveer Plaza, Jangi Chowk, Hasilpur"],
       type: "address",
