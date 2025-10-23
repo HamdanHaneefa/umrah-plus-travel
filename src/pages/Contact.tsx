@@ -1,17 +1,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Switch } from "@/components/ui/switch";
+import { Label } from "@/components/ui/label";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -20,53 +14,66 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    service: "",
-    message: "",
+    flightFrom: "",
+    flightTo: "",
+    date: "",
+    isRoundTrip: false,
+    returnDate: "",
   });
 
-  // ✅ Replace this with your actual Google Apps Script Web App URL
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxwGG13zBMrLMZvduSSNPw4GXdeGsyiq_ZxeUl3CMTZzIBT-YodedshvwYfaks8ZOMDig/exec";
+  // ✅ Replace this with your WhatsApp number (with country code, no + or spaces)
+  const WHATSAPP_NUMBER = "971525257136"; // Example: 971525257136
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate service is selected
-    if (!formData.service) {
+
+    // Validate round trip return date if needed
+    if (formData.isRoundTrip && !formData.returnDate) {
       toast({
-        title: "Error",
-        description: "Please select a service type",
+        title: "Return date required",
+        description: "Please select a return date for round trips.",
         variant: "destructive",
       });
       return;
     }
-
+    
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors", // Important for Google Apps Script
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      // Create WhatsApp message
+      const message = `*New Flight Booking Request*\n\n` +
+`👤 *Name:* ${formData.name}\n` +
+`📧 *Email:* ${formData.email}\n` +
+`📱 *Phone:* ${formData.phone}\n` +
+`✈️ *Flight From:* ${formData.flightFrom}\n` +
+`✈️ *Flight To:* ${formData.flightTo}\n` +
+`➡️ *Trip Type:* ${formData.isRoundTrip ? "Round Trip" : "One Way"}\n` +
+`📅 *Departure Date:* ${formData.date}` +
+`${formData.isRoundTrip ? `\n📅 *Return Date:* ${formData.returnDate}` : ""}`;
 
-      // Note: With no-cors mode, we can't read the response
-      // but if no error is thrown, it likely succeeded
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+      
+      // Open WhatsApp in new tab
+      window.open(whatsappURL, '_blank');
+
       toast({
-        title: "Message Sent! ✓",
-        description: "We'll get back to you within 4 hours during business hours.",
+        title: "Redirecting to WhatsApp ✓",
+        description: "Ticket will be received soon",
       });
       
       // Reset form
-      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+      setFormData({ 
+        name: "", email: "", phone: "", 
+        flightFrom: "", flightTo: "", date: "",
+        isRoundTrip: false, returnDate: "" 
+      });
       
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again or contact us directly.",
+        description: "Failed to open WhatsApp. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -77,10 +84,17 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Office Address",
-      details: ["10 Maleha St - opp. Dibba Bekary - Industrial Area 15 - Industrial Area - Sharjah"],
+      title: "Sharjah Office",
+      details: ["Shop # 02 and 03, Industrial 15, Maliha Road, Sharjah, UAE"],
       type: "address",
       link: "https://www.google.com/maps/dir//DAR+AL+ASALAH+TOURISM+LLC+-+10+Maleha+St+-+opp.+Dibba+Bekary+-+Sharjah+-+United+Arab+Emirates/@25.2906294,55.4439761,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x3e5f5f002b85f161:0x40eff993c97df802!2m2!1d55.4439761!2d25.2906294!3e0?entry=ttu",
+    },
+    {
+      icon: MapPin,
+      title: "Pakistan Office",
+      details: ["Shop No/2 First Floor, Ch. Tanveer Plaza, Jangi Chowk, Hasilpur"],
+      type: "address",
+      link: "https://maps.app.goo.gl/v2XJaGVWKSMZdNAx6",
     },
     {
       icon: Phone,
@@ -158,31 +172,57 @@ const Contact = () => {
                   type="tel"
                 />
 
-                <Select
-                  value={formData.service}
-                  onValueChange={(value) => setFormData({ ...formData, service: value })}
-                  disabled={isSubmitting}
+                <Input
+                  placeholder="Flight From *"
+                  value={formData.flightFrom}
+                  onChange={(e) => setFormData({ ...formData, flightFrom: e.target.value })}
                   required
-                >
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select Service Type *" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="umrah">Umrah</SelectItem>
-                    <SelectItem value="visa">Visa</SelectItem>
-                    <SelectItem value="travel">Travel</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-
-                <Textarea
-                  placeholder="Your Message *"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  required
-                  rows={5}
                   disabled={isSubmitting}
+                  name="flightFrom"
                 />
+
+                <Input
+                  placeholder="Flight To *"
+                  value={formData.flightTo}
+                  onChange={(e) => setFormData({ ...formData, flightTo: e.target.value })}
+                  required
+                  disabled={isSubmitting}
+                  name="flightTo"
+                />
+
+                <Input
+                  type="date"
+                  placeholder="Departure Date *"
+                  value={formData.date}
+                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                  required
+                  disabled={isSubmitting}
+                  name="date"
+                />
+
+                {/* Round Trip toggle now below date */}
+                <div className="flex items-center justify-between py-1">
+                  <Label htmlFor="roundTrip" className="text-foreground">Round Trip</Label>
+                  <Switch
+                    id="roundTrip"
+                    checked={formData.isRoundTrip}
+                    onCheckedChange={(checked) => setFormData({ ...formData, isRoundTrip: checked })}
+                    disabled={isSubmitting}
+                  />
+                </div>
+
+                {formData.isRoundTrip && (
+                  <Input
+                    type="date"
+                    placeholder="Return Date *"
+                    value={formData.returnDate}
+                    onChange={(e) => setFormData({ ...formData, returnDate: e.target.value })}
+                    required={formData.isRoundTrip}
+                    disabled={isSubmitting}
+                    name="returnDate"
+                  />
+                )}
+
                 <Button 
                   type="submit" 
                   variant="hero" 

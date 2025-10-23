@@ -41,25 +41,36 @@ const AboutUs = () => {
 
   const teamMembers = [
     {
-      name: "Mr. Khalid Al-Asalah",
-      position: "Managing Director",
-      experience: "20+ years in travel and tourism industry",
-      specialization: "Middle East and European travel",
-      education: "Graduate in Business Administration",
+      name: "Kashif Amjad",
+      position: "Team Member",
+      experience: "—",
+      specialization: "—",
+      education: "—",
+      image: "/placeholder.svg",
     },
     {
-      name: "Mrs. Amina Hassan",
-      position: "Operations Manager",
-      experience: "Expert in visa processing and documentation",
-      specialization: "15 years experience in UAE immigration services",
-      education: "Certified travel consultant",
+      name: "Muhammad Abdullah Akram",
+      position: "Team Member",
+      experience: "—",
+      specialization: "—",
+      education: "—",
+      image: "/placeholder.svg",
     },
     {
-      name: "Mr. Ahmed Rahman",
-      position: "Umrah Services Director",
-      experience: "Experienced Hajj and Umrah guide",
-      specialization: "Fluent in Arabic, English, and Urdu",
-      education: "12+ years in religious tourism",
+      name: "Umar Khatab",
+      position: "Team Member",
+      experience: "—",
+      specialization: "—",
+      education: "—",
+      image: "/placeholder.svg",
+    },
+    {
+      name: "Waseem Akram",
+      position: "Team Member",
+      experience: "—",
+      specialization: "—",
+      education: "—",
+      image: "/placeholder.svg",
     },
   ];
 
@@ -191,12 +202,12 @@ const AboutUs = () => {
               Experienced professionals dedicated to your travel success
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {teamMembers.map((member, index) => (
               <Card key={index} className="hover:shadow-elegant transition-all duration-300">
                 <CardContent className="p-6">
-                  <div className="w-20 h-20 bg-gradient-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-10 h-10 text-secondary-foreground" />
+                  <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border border-border bg-card">
+                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="text-xl font-bold text-foreground text-center mb-1">{member.name}</h3>
                   <p className="text-secondary text-center font-medium mb-4">{member.position}</p>

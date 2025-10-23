@@ -21,9 +21,11 @@ const Navbar = () => {
   ];
 
   const serviceLinks = [
-    { name: "Umrah Services", path: "/umrah" },
-    { name: "Visa Services", path: "/visa" },
-    { name: "Travel Services", path: "/travel" },
+    { name: "Visit Visa", path: "/visa" },
+    { name: "Flight Booking", path: "/travel" },
+    { name: "Umrah Package", path: "/umrah" },
+    { name: "Hotel Reservations", path: "/travel" },
+    { name: "Travel Insurance", path: "/travel" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -122,13 +124,13 @@ const Navbar = () => {
                           key={service.path}
                           to={service.path}
                           onClick={() => setIsServicesOpen(false)}
-                          className={`block px-4 py-3 text-sm font-medium transition-colors duration-200 ${
+                          className={`block px-4 py-3 transition-colors duration-200 ${
                             isActive(service.path)
                               ? "bg-primary text-white"
                               : "text-gray-700 hover:bg-gray-50"
                           }`}
                         >
-                          {service.name}
+                          <span className="text-sm font-semibold">{service.name}</span>
                         </Link>
                       ))}
                     </div>
@@ -202,13 +204,13 @@ const Navbar = () => {
                             setIsOpen(false);
                             setIsMobileServicesOpen(false);
                           }}
-                          className={`block px-4 py-2 rounded-md text-sm font-normal transition-all duration-300 ${
+                          className={`block px-4 py-2 rounded-md transition-all duration-300 ${
                             isActive(service.path)
                               ? "bg-primary text-white"
                               : "text-gray-700 hover:bg-gray-100"
                           }`}
                         >
-                          {service.name}
+                          <span className="text-sm font-medium">{service.name}</span>
                         </Link>
                       ))}
                     </div>
@@ -236,7 +238,7 @@ const Navbar = () => {
               data-testid="button-mobile-get-started"
             >
               <Link to="/contact" onClick={() => setIsOpen(false)}>Get Started</Link>
-            </Button>
+            </Button> 
           </div>
         </div>
       )}
