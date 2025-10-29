@@ -120,6 +120,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
+        //remove these 
       </section> */}
 
       {/* Mission & Vision */}
