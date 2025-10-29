@@ -1,1 +1,13 @@
-/* /index.html 200
+# Static assets first
+/static/* /static/:splat 200
+/assets/* /assets/:splat 200
+/src/assets/* /src/assets/:splat 200
+/favicon.ico /favicon.ico 200
+/robots.txt /robots.txt 200
+/placeholder.svg /placeholder.svg 200
+
+# API routes (if any)
+/api/* /api/:splat 200
+
+# SPA fallback - serve index.html for all other routes
+/* /index.html 200!

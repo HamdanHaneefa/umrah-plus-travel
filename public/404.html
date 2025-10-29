@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dar al Asalah Tourism LLC</title>
     <script>
-        // Redirect to the main app to handle routing
-        window.location.replace('/');
+        // Get the requested path
+        var currentPath = window.location.pathname;
+        var currentSearch = window.location.search;
+        var currentHash = window.location.hash;
+        var fullUrl = currentPath + currentSearch + currentHash;
+        
+        // Replace current history state and redirect to root with preserved URL
+        window.history.replaceState(null, '', fullUrl);
+        window.location.href = '/' + (fullUrl.startsWith('/') ? fullUrl.slice(1) : fullUrl);
     </script>
 </head>
 <body>
-    <p>Redirecting...</p>
+    <div style="text-align: center; padding: 50px;">
+        <p>Loading your page...</p>
+    </div>
 </body>
 </html>
