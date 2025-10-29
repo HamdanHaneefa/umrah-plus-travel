@@ -1,5 +1,9 @@
 import { Target, Eye, Heart, Award, Users, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import kashifImg from "../assets/kashif.jpg";
+import abdullaImg from "../assets/abdulla.jpg";
+import umarImg from "../assets/umar.jpg";
+import imtiazImg from "../assets/imtiaz.jpg";
 
 const AboutUs = () => {
   const milestones = [
@@ -43,22 +47,22 @@ const AboutUs = () => {
     {
       name: "Kashif Amjad",
       position: "Office Manager",
-      image: "/src/assets/kashif.jpg",
+      image: kashifImg,
     },
     {
       name: "Muhammad Abdullah Akram",
       position: "Sales Manager",
-      image: "/src/assets/abdulla.jpg",
+      image: abdullaImg,
     },
     {
       name: "Umar Khatab",
       position: "Senior Sales Executive",
-      image: "/src/assets/umar.jpg",
+      image: umarImg,
     },
     {
       name: "Imtiaz Akram",
       position: "Regional Sales Manager",
-      image: "/src/assets/imtiaz.jpg",
+      image: imtiazImg,
     },
   ];
 
