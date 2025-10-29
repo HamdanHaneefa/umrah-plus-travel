@@ -42,35 +42,23 @@ const AboutUs = () => {
   const teamMembers = [
     {
       name: "Kashif Amjad",
-      position: "Team Member",
-      experience: "—",
-      specialization: "—",
-      education: "—",
-      image: "/placeholder.svg",
+      position: "Office Manager",
+      image: "/src/assets/kashif.jpg",
     },
     {
       name: "Muhammad Abdullah Akram",
-      position: "Team Member",
-      experience: "—",
-      specialization: "—",
-      education: "—",
-      image: "/placeholder.svg",
+      position: "Sales Manager",
+      image: "/src/assets/abdulla.jpg",
     },
     {
       name: "Umar Khatab",
-      position: "Team Member",
-      experience: "—",
-      specialization: "—",
-      education: "—",
-      image: "/placeholder.svg",
+      position: "Senior Sales Executive",
+      image: "/src/assets/umar.jpg",
     },
     {
-      name: "Waseem Akram",
-      position: "Team Member",
-      experience: "—",
-      specialization: "—",
-      education: "—",
-      image: "/placeholder.svg",
+      name: "Imtiaz Akram",
+      position: "Regional Sales Manager",
+      image: "/src/assets/imtiaz.jpg",
     },
   ];
 
@@ -206,16 +194,19 @@ const AboutUs = () => {
             {teamMembers.map((member, index) => (
               <Card key={index} className="hover:shadow-elegant transition-all duration-300">
                 <CardContent className="p-6">
-                  <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border border-border bg-card">
-                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                  <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border border-border bg-card">
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = "/placeholder.svg";
+                      }}
+                    />
                   </div>
                   <h3 className="text-xl font-bold text-foreground text-center mb-1">{member.name}</h3>
-                  <p className="text-secondary text-center font-medium mb-4">{member.position}</p>
-                  <div className="space-y-2 text-sm text-muted-foreground">
-                    <p>• {member.experience}</p>
-                    <p>• {member.specialization}</p>
-                    <p>• {member.education}</p>
-                  </div>
+                  <p className="text-secondary text-center font-medium">{member.position}</p>
                 </CardContent>
               </Card>
             ))}

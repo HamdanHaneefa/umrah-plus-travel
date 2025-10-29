@@ -7,11 +7,11 @@ import flightImage from "@/assets/flight-booking.jpg";
 const TravelServices = () => {
   const flightServices = [
     {
-      title: "Domestic Flights (UAE)",
+      title: "Regional Flights (GCC & MENA)",
       features: [
-        "Airlines: Emirates, Flydubai, Air Arabia, Etihad Airways",
-        "Routes: Dubai-Abu Dhabi, Dubai-Sharjah connections",
-        "Booking: Online booking system with instant confirmation",
+        "Airlines: Emirates, Flydubai, Air Arabia, Etihad Airways, Qatar Airways, Saudia",
+        "Popular routes: Dubai–Doha, Dubai–Riyadh, Dubai–Jeddah, Sharjah–Cairo",
+        "Booking: Online booking with instant confirmation",
         "Support: 24/7 customer service for changes and cancellations",
       ],
     },
