@@ -11,6 +11,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 5000,
+    historyApiFallback: true,
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
