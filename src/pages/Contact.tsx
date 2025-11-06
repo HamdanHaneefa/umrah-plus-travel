@@ -1,107 +1,30 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    flightFrom: "",
-    flightTo: "",
-    date: "",
-    isRoundTrip: false,
-    returnDate: "",
-  });
-
-  // ✅ Replace this with your WhatsApp number (with country code, no + or spaces)
-  const WHATSAPP_NUMBER = "971525257136"; // Example: 971525257136
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Validate round trip return date if needed
-    if (formData.isRoundTrip && !formData.returnDate) {
-      toast({
-        title: "Return date required",
-        description: "Please select a return date for round trips.",
-        variant: "destructive",
-      });
-      return;
-    }
-    
-    setIsSubmitting(true);
-
-    try {
-      // Create WhatsApp message
-      const message = `*New Flight Booking Request*\n\n` +
-`👤 *Name:* ${formData.name}\n` +
-`📧 *Email:* ${formData.email}\n` +
-`📱 *Phone:* ${formData.phone}\n` +
-`✈️ *Flight From:* ${formData.flightFrom}\n` +
-`✈️ *Flight To:* ${formData.flightTo}\n` +
-`➡️ *Trip Type:* ${formData.isRoundTrip ? "Round Trip" : "One Way"}\n` +
-`📅 *Departure Date:* ${formData.date}` +
-`${formData.isRoundTrip ? `\n📅 *Return Date:* ${formData.returnDate}` : ""}`;
-
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-      
-      // Open WhatsApp in new tab
-      window.open(whatsappURL, '_blank');
-
-      toast({
-        title: "Redirecting to WhatsApp ✓",
-        description: "Ticket will be received soon",
-      });
-      
-      // Reset form
-      setFormData({ 
-        name: "", email: "", phone: "", 
-        flightFrom: "", flightTo: "", date: "",
-        isRoundTrip: false, returnDate: "" 
-      });
-      
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast({
-        title: "Error",
-        description: "Failed to open WhatsApp. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   const contactInfo = [
     {
       icon: MapPin,
       title: "Sharjah Office",
-      details: ["Shop # 02 and 03, Industrial 15, Maliha Road, Sharjah, UAE"],
+      details: ["Shop # 02 and 03, Industrial 15, Maliha Road, Industrial Area 15, Sharjah, UAE"],
       type: "address",
-      link: "https://www.google.com/maps/dir//DAR+AL+ASALAH+TOURISM+LLC+-+10+Maleha+St+-+opp.+Dibba+Bekary+-+Sharjah+-+United+Arab+Emirates/@25.2906294,55.4439761,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x3e5f5f002b85f161:0x40eff993c97df802!2m2!1d55.4439761!2d25.2906294!3e0?entry=ttu",
+      link: "https://www.google.com/maps/place/DAR+AL+ASALAH+TOURISM+LLC/@25.2906294,55.4439761,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f5f002b85f161:0x40eff993c97df802!8m2!3d25.2906294!4d55.4439761!16s%2Fg%2F11smd19m5d",
     },
     {
       icon: MapPin,
       title: "Ajman Office",
-      details: ["Shop # 01, Amr Ibn El Ass Street, Near Lucky Roundabout, Ind Area 2, Ajman, UAE"],
+      details: ["Shop # 01, Amr Ibn El Ass Street, Near Lucky Roundabout, Industrial Area 2, Ajman, UAE"],
       type: "address",
-      link: "https://maps.app.goo.gl/RmBGkkykPmnZbg5T8",
+      link: "https://www.google.com/maps/place/Dar+Al+Asalah+Tourism/@25.3926445,55.4799646,17z/data=!3m1!4b1!4m6!3m5!1s0x3e5f5779e025a1cd:0x3f3eeb547f1a3f8e!8m2!3d25.3926445!4d55.4799646!16s%2Fg%2F11smd19m5d",
     },
     {
       icon: MapPin,
       title: "Pakistan Office",
-      details: ["Shop No/2 First Floor, Ch. Tanveer Plaza, Jangi Chowk, Hasilpur"],
+      details: ["Shop No/2 First Floor, Ch. Tanveer Plaza, Jangi Chowk, Hasilpur, Pakistan"],
       type: "address",
-      link: "https://maps.app.goo.gl/v2XJaGVWKSMZdNAx6",
+      link: "https://www.google.com/maps/place/Dar+Al+Asalah+Tourism+LLC/@29.6927823,72.6548182,17z/data=!3m1!4b1!4m6!3m5!1s0x3922b7c1c7777777:0x3922b7c1c7777777!8m2!3d29.6927823!4d72.6548182!16s%2Fg%2F11smd19m5d",
     },
     {
       icon: Phone,
@@ -120,14 +43,14 @@ const Contact = () => {
     {
       icon: Clock,
       title: "Business Hours",
-      details: ["Sun-Thu: 8:00 AM - 8:00 PM", "Fri: 2:00 PM - 8:00 PM", "Sat: 9:00 AM - 6:00 PM"],
+      details: ["All Days: 9:00 AM - 11:30 PM"],
       type: "hours",
     },
   ];
 
   const handleContactClick = (type: string, link?: string) => {
     if (link) {
-      window.location.href = link;
+      window.open(link, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -148,105 +71,15 @@ const Contact = () => {
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold text-foreground mb-8">Send Us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6" autoComplete="on">
-                <Input
-                  placeholder="Full Name *"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                  disabled={isSubmitting}
-                  autoComplete="name"
-                  name="name"
-                />
-                <Input
-                  type="email"
-                  placeholder="Email Address *"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  disabled={isSubmitting}
-                  autoComplete="email"
-                  name="email"
-                />
-                <Input
-                  placeholder="Phone Number *"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  required
-                  disabled={isSubmitting}
-                  autoComplete="tel"
-                  name="phone"
-                  type="tel"
-                />
-
-                <Input
-                  placeholder="Flight From *"
-                  value={formData.flightFrom}
-                  onChange={(e) => setFormData({ ...formData, flightFrom: e.target.value })}
-                  required
-                  disabled={isSubmitting}
-                  name="flightFrom"
-                />
-
-                <Input
-                  placeholder="Flight To *"
-                  value={formData.flightTo}
-                  onChange={(e) => setFormData({ ...formData, flightTo: e.target.value })}
-                  required
-                  disabled={isSubmitting}
-                  name="flightTo"
-                />
-
-                <Input
-                  type="date"
-                  placeholder="Departure Date *"
-                  value={formData.date}
-                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                  required
-                  disabled={isSubmitting}
-                  name="date"
-                />
-
-                {/* Round Trip toggle now below date */}
-                <div className="flex items-center justify-between py-1">
-                  <Label htmlFor="roundTrip" className="text-foreground">Round Trip</Label>
-                  <Switch
-                    id="roundTrip"
-                    checked={formData.isRoundTrip}
-                    onCheckedChange={(checked) => setFormData({ ...formData, isRoundTrip: checked })}
-                    disabled={isSubmitting}
-                  />
-                </div>
-
-                {formData.isRoundTrip && (
-                  <Input
-                    type="date"
-                    placeholder="Return Date *"
-                    value={formData.returnDate}
-                    onChange={(e) => setFormData({ ...formData, returnDate: e.target.value })}
-                    required={formData.isRoundTrip}
-                    disabled={isSubmitting}
-                    name="returnDate"
-                  />
-                )}
-
-                <Button 
-                  type="submit" 
-                  variant="hero" 
-                  size="lg" 
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    "Send Message"
-                  )}
-                </Button>
-              </form>
+              <div className="text-lg text-muted-foreground">
+                Please use our service-specific forms in the respective service pages for bookings and quotes:
+                <ul className="list-disc ml-6 mt-4 space-y-2">
+                  <li><Link to="/travel" className="text-primary hover:underline">Flight & Hotel Bookings</Link></li>
+                  <li><Link to="/umrah" className="text-primary hover:underline">Umrah Services</Link></li>
+                  <li><Link to="/visa" className="text-primary hover:underline">Visa Services</Link></li>
+                </ul>
+                <p className="mt-6">For general inquiries, please use our contact information provided.</p>
+              </div>
             </div>
 
             {/* Contact Information */}

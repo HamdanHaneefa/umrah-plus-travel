@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plane, Hotel, MapPin, Shield, Bus, ArrowRight } from "lucide-react";
 import flightImage from "@/assets/flight-booking.jpg";
+import FlightBookingForm from "@/components/FlightBookingForm";
+import HotelBookingForm from "@/components/HotelBookingForm";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const TravelServices = () => {
   const flightServices = [
@@ -190,24 +194,35 @@ const TravelServices = () => {
                Competitive rates for domestic and international flights with 24/7 support
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {flightServices.map((service, index) => (
-              <Card key={index} className="hover:shadow-elegant transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-2xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <span className="text-secondary text-xl">•</span>
-                        <span className="text-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-8">
+              {flightServices.map((service, index) => (
+                <Card key={index} className="hover:shadow-elegant transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start space-x-3">
+                          <span className="text-secondary text-xl">•</span>
+                          <span className="text-foreground">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            
+            <Card className="hover:shadow-elegant transition-all duration-300">
+              <CardHeader>
+                <CardTitle className="text-2xl">Flight Booking</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <FlightBookingForm />
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -224,24 +239,35 @@ const TravelServices = () => {
                Worldwide accommodation from budget-friendly to luxury options
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {hotelCategories.map((category, index) => (
-              <Card key={index} className="hover:shadow-elegant transition-all duration-300">
-                <CardHeader>
-                  <CardTitle className="text-2xl">{category.region}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {category.areas.map((area, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <span className="text-secondary text-xl">•</span>
-                        <span className="text-foreground">{area}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-8">
+              {hotelCategories.map((category, index) => (
+                <Card key={index} className="hover:shadow-elegant transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">{category.region}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      {category.areas.map((area, idx) => (
+                        <li key={idx} className="flex items-start space-x-3">
+                          <span className="text-secondary text-xl">•</span>
+                          <span className="text-foreground">{area}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <Card className="hover:shadow-elegant transition-all duration-300">
+              <CardHeader>
+                <CardTitle className="text-2xl">Hotel Booking</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <HotelBookingForm />
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
