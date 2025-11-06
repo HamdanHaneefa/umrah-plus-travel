@@ -30,6 +30,18 @@ function ScrollToTop() {
   return null;
 }
 
+function PageViewTracker() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    import('./lib/analytics').then(({ logPageView }) => {
+      logPageView(pathname);
+    });
+  }, [pathname]);
+
+  return null;
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -37,6 +49,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <PageViewTracker />
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <main className="flex-grow pt-20">
