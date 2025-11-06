@@ -74,12 +74,7 @@ const AboutUs = () => {
     "Sharjah Chamber of Commerce: Active member since 2008",
   ];
 
-  const awards = [
-    { year: "2022", award: "Best Travel Agency - Sharjah Tourism Awards" },
-    { year: "2021", award: "Customer Excellence Award - UAE Travel Association" },
-    { year: "2020", award: "Digital Innovation Award - Emirates Business Council" },
-    { year: "2019", award: "Outstanding Service Award - Umrah Operators Association" },
-  ];
+
 
   return (
     <div className="min-h-screen">
@@ -90,7 +85,7 @@ const AboutUs = () => {
             About Dar al Asalah Tourism LLC
           </h1>
           <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            Your trusted travel partner since 2008, serving thousands of clients with excellence and dedication
+            Your trusted travel partner serving thousands of clients with excellence and dedication
           </p>
         </div>
       </section>
@@ -239,30 +234,7 @@ const AboutUs = () => {
         </div>
       </section> */}
 
-      {/* Awards */}
-      <section className="py-20 bg-muted">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Awards & Recognition</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Celebrating excellence in travel services
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {awards.map((award, index) => (
-              <div key={index} className="flex items-start space-x-4 p-6 bg-card border border-border rounded-lg hover:shadow-card transition-all duration-300">
-                <div className="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center flex-shrink-0">
-                  <Award className="w-8 h-8 text-secondary-foreground" />
-                </div>
-                <div>
-                  <p className="text-secondary font-bold text-lg mb-1">{award.year}</p>
-                  <p className="text-foreground font-medium">{award.award}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-primary text-primary-foreground">

@@ -36,9 +36,9 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: ["info@dartourism.com", "umrah@dartourism.com", "visa@dartourism.com"],
+      details: ["info@dartourism.com"],
       type: "email",
-      links: ["mailto:info@dartourism.com", "mailto:umrah@dartourism.com", "mailto:visa@dartourism.com"],
+      links: ["mailto:info@dartourism.com"],
     },
     {
       icon: Clock,
